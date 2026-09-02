@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    border-color: rgba(255, 255, 255, 0.06);
+  }
+
+  body {
+    background-color: #0b0e11;
+    color: #e5e7eb;
+    font-family: 'Geist', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: rgba(255, 179, 173, 0.25);
+  }
+
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #0b0e11;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #22262b;
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #2d3238;
+  }
+}
+
+@layer components {
+  .input-base {
+    @apply w-full rounded-btn bg-base-nested border border-border px-4 py-2.5 text-sm text-white placeholder-gray-500 outline-none transition-colors;
+  }
+  .input-base:focus {
+    @apply border-accent-salmon;
+    box-shadow: 0 0 0 3px rgba(255, 179, 173, 0.12);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-btn bg-accent-red px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-red-600 active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center justify-center gap-2 rounded-btn border border-border-strong px-5 py-2.5 text-sm font-semibold text-gray-200 transition-all hover:bg-base-hover active:scale-[0.98] disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-btn px-4 py-2 text-sm font-medium text-gray-400 transition-colors hover:text-white hover:bg-base-hover;
+  }
+
+  .card {
+    @apply rounded-card bg-base-surface border border-border;
+  }
+
+  .nav-item {
+    @apply flex items-center gap-3 px-3 py-2.5 rounded-btn text-sm font-medium text-gray-400 transition-colors cursor-pointer hover:text-white hover:bg-base-hover;
+  }
+  .nav-item-active {
+    @apply text-accent-salmon bg-accent-salmon-dim;
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.96); }
+  to { opacity: 1; transform: scale(1); }
+}
+.animate-fade-in { animation: fadeIn 0.2s ease-out; }
+.animate-slide-up { animation: slideUp 0.3s ease-out; }
+.animate-scale-in { animation: scaleIn 0.2s ease-out; }
